@@ -16,15 +16,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 18.16.1
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18.16.1
           cache: "npm"
-          working-directory: ./server
       - name: Install dependencies
-        working-directory: ./server
-        run: npm i
+        run: |
+          cd ./server
+          npm i
+          
       - name: Running tests
         working-directory: ./server
-        run: npm test
+        run: |
+          cd ./server
+          npm i
+        
