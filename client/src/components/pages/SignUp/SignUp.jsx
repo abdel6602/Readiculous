@@ -82,38 +82,7 @@ const SignUp = () => {
   );
 };
 
-{/* <div className="overlap">
-                    <div className="create-account">
-                        <div className="text-wrapper">English (UK)</div>
-                        <img className="polygon" alt="Polygon" src="polygon-1.svg" />
-                        <div className="div">Create Account</div>
-                        <div className="overlap-group">
-                            <img className="googlelogo" alt="Googlelogo" src="googlelogo.png" />
-                            <div className="text-wrapper-2">Sign up with Google</div>
-                        </div>
-                        <div className="overlap-2">
-                            <img className="facelogo" alt="Facelogo" src="facelogo.png" />
-                            <div className="text-wrapper-3">Sign up with Facebook</div>
-                        </div>
-                        <div className="text-wrapper-4">Full Name</div>
-                        <div className="overlap-3">
-                            <div className="text-wrapper-5">Email Address</div>
-                            <div className="text-wrapper-6">Password</div>
-                            <img className="line" alt="Line" src="line-1.svg" />
-                            <img className="email" alt="Email" src="email.png" />
-                            <img className="hide" alt="Hide" src="hide.png" />
-                        </div>
-                        <div className="text-wrapper-7">Login in</div>
-                        <p className="p">Already have an Account ?</p>
-                        <div className="text-wrapper-8">_ OR _</div>
-                        <img className="user" alt="User" src="user.png" />
-                        <div className="div-wrapper">
-                            <div className="text-wrapper-9">Create Account</div>
-                        </div>
-                    </div>
-                    <img className="LOGO-IMAGE" alt="Logo IMAGE" src="LOGO-IMAGE.png" />
-                    <img className="READ-title" alt="Read title" src="READ-title.png" />
-                </div> */}
+
 
 
 
