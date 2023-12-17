@@ -74,3 +74,8 @@ export async function createUsersTable(connection) {
         console.log(error.message);
     }
 }
+
+
+createDatabaseIfNotExists();
+const connection = connectToDatabase();
+createUsersTable(connection);

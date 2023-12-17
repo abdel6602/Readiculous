@@ -15,12 +15,6 @@ app.get('/', (req, res) => {
     res.json({message: "database created"});
 })
 
-// app.get('/login/:username/:password', (req, res) => {
-//     const username = req.params.username;
-//     const password = req.params.password;
-//     res.json({ username: username, password: password });
-// });
-
 app.listen(8080, () => {
     console.log('server listening on port 8080')
 });

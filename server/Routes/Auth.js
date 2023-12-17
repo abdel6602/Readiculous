@@ -7,5 +7,3 @@ export const authApp = express();
 
 authApp.get('/', auth.login);
 authApp.post('/', auth.signup);
-
-authApp.post('/:username/:password')
