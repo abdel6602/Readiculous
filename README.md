@@ -22,7 +22,6 @@
   <p>search for readiculous on google or visit Readiculous.netlify.app.com</p>
 
   <h3>For Developers</h3>
-  <p>our api will be publicly available for use for free, await further documentation upon api development completion :)</p>
-
-  <p>Tee Edit</p>
-  
+  <p>our api will be publicly available for use for free, await further documentation upon api development completion :)</p>  
+  <p>Tee Edit </p>
+ 
