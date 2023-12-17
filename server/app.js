@@ -1,13 +1,26 @@
-const express = require('express');
+import express from "express";
+import cors from 'cors';
+import { authApp } from "./Routes/Auth.js";
+import {createDatabaseIfNotExists} from './Models/dummyDatabase.js'
 
-const app = express();
+export const app = express();
 
-var sum = (a, b) => {
-    return a + b;
-}
+app.use(cors());
+app.use(express.json());
 
-//listen for requests here
+app.use('/auth', authApp)
+
+app.get('/', (req, res) => {
+    createDatabaseIfNotExists();
+    res.json({message: "database created"});
+})
+
+// app.get('/login/:username/:password', (req, res) => {
+//     const username = req.params.username;
+//     const password = req.params.password;
+//     res.json({ username: username, password: password });
+// });
 
 app.listen(8080, () => {
     console.log('server listening on port 8080')
-})
+});
