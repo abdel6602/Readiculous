@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors';
 import { authApp } from "./Routes/Auth.js";
-import {createDatabaseIfNotExists} from './Models/dummyDatabase.js'
+import { createDatabaseIfNotExists } from './Models/database.js'
 
 export const app = express();
 
@@ -10,9 +10,10 @@ app.use(express.json());
 
 app.use('/auth', authApp)
 
+
 app.get('/', (req, res) => {
     createDatabaseIfNotExists();
-    res.json({message: "database created"});
+    res.json({ message: "database created" });
 })
 
 app.listen(8080, () => {
