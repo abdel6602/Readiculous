@@ -30,8 +30,6 @@ const createDatabaseIfNotExists = async () => {
         }
     } catch (error) {
         return false;
-    }finally {
-        connection.promise().end();
     }
 };
 
