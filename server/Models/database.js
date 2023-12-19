@@ -1,6 +1,6 @@
-import mysql from "mysql2";
+const mysql = require("mysql2");
 
-export const createDatabaseIfNotExists = async () => {
+const createDatabaseIfNotExists = async () => {
     // Replace these values with your MySQL server credentials
     const connectionConfig = {
         host: '127.0.0.1',
@@ -30,9 +30,8 @@ export const createDatabaseIfNotExists = async () => {
         }
     } catch (error) {
         return false;
-    } finally {
-        // Close the connection
-        await connection.promise().end();
+    }finally {
+        connection.promise().end();
     }
 };
 
@@ -40,7 +39,7 @@ export const createDatabaseIfNotExists = async () => {
 
 //connect to database
 
-export async function connectToDatabase() {
+async function connectToDatabase() {
     const connectionConfig = {
         host: '127.0.0.1',
         user: 'root',
@@ -52,7 +51,7 @@ export async function connectToDatabase() {
         await connection.promise().connect();
         console.log("Connected to database");
         return connection.promise();
-    } 
+    }
     catch (error) {
         console.log("Error connecting to database");
         return false;
@@ -60,8 +59,8 @@ export async function connectToDatabase() {
 }
 
 // Create tables here
-export async function createUsersTable(connection) {
-    try{
+async function createUsersTable(connection) {
+    try {
         connection.query(`CREATE TABLE IF NOT EXISTS users
                             (id INT AUTO_INCREMENT PRIMARY KEY,
                             username VARCHAR(255) NOT NULL UNIQUE,
@@ -70,7 +69,7 @@ export async function createUsersTable(connection) {
                             last_name NVARCHAR(255) NOT NULL);`);
         console.log("Created users table");
     }
-    catch(error){
+    catch (error) {
         console.log(error.message);
     }
 }
@@ -79,3 +78,5 @@ export async function createUsersTable(connection) {
 createDatabaseIfNotExists();
 const connection = connectToDatabase();
 createUsersTable(connection);
+
+module.exports = {connectToDatabase, createDatabaseIfNotExists, createUsersTable}

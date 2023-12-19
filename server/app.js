@@ -1,14 +1,16 @@
-import express from "express";
-import cors from 'cors';
-import { authApp } from "./Routes/Auth.js";
-import { createDatabaseIfNotExists } from './Models/database.js'
+const express = require("express");
+const cors = require('cors');
+const  authApp  = require("./Routes/Auth.js") ;
+const clubApp  = require("./Routes/Club.js") ;
+const createDatabaseIfNotExists  = require('./Models/database.js')
 
-export const app = express();
+const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 app.use('/auth', authApp)
+app.use('/club', clubApp)
 
 
 app.get('/', (req, res) => {
@@ -19,3 +21,5 @@ app.get('/', (req, res) => {
 app.listen(8080, () => {
     console.log('server listening on port 8080')
 });
+
+module.exports = app;

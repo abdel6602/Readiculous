@@ -1,10 +1,8 @@
-import { getUser, createUser, getUserById, deleteUser } from "../Models/Users.js";
-import bcrypt from 'bcrypt';
+const { getUser, createUser, getUserById, deleteUser } = require("../Models/Users");
+const bcrypt = require('bcrypt');
 
 
-export class Authenticator {
-
-
+class Authenticator {
     async signup(req, res) {
         //TODO: validate against sql injection
         const { email, password, firstName, lastName } = req.body;
@@ -16,7 +14,7 @@ export class Authenticator {
         }
         // if username doesn't exist, create user
         else {
-            // check for password strength
+            // check for password strength 
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
             if (passwordRegex.test(password)) {
                 //hash password
@@ -89,10 +87,13 @@ export class Authenticator {
         }
     }
 
-    async changePassword(req, res) {
+    async changePassword(req, res) {r
+
         //TODO: implement this function
         const { userID, newPassword } = req.body;
 
     }
 
 }
+
+module.exports = Authenticator;

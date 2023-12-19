@@ -1,16 +1,19 @@
-import { connectToDatabase } from "./database.js";
-import bcrypt from "bcrypt";
+const bcrypt = require("bcrypt");
+const  {connectToDatabase} = require("./database");
 
-const connection = await connectToDatabase();
+let connection;
 
-export async function getUser(email) {
+async function getUser(email) {
+    connection = await connectToDatabase();
     const user = await connection.query(
         `SELECT * FROM users WHERE email = ? `, [email]
     );
     return user[0][0];
 }
 
-export async function createUser(email, password, firstName, lastName) {
+async function createUser(email, password, firstName, lastName) {
+    connection = await connectToDatabase();
+
     try {
         const user = await connection.query(
             `INSERT INTO users (email, password, firstName, lastName) VALUES (?, ?, ?, ?)`, [email, password, firstName, lastName]
@@ -22,7 +25,8 @@ export async function createUser(email, password, firstName, lastName) {
     }
 }
 
-export async function deleteUser(id) {
+async function deleteUser(id) {
+    connection = await connectToDatabase();
     try {
         await connection.query(
             `DELETE FROM users WHERE ID = ?`, [id]
@@ -33,9 +37,17 @@ export async function deleteUser(id) {
     }
 }
 
-export async function getUserById(id) {
+async function getUserById(id) {
+    connection = await connectToDatabase();
     const user = await connection.query(
         `SELECT * FROM users WHERE ID = ? `, [id]
     );
     return user[0][0];
+}
+
+module.exports = {
+    getUser,
+    getUserById,
+    createUser,
+    deleteUser
 }
