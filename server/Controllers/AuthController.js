@@ -1,8 +1,8 @@
-import { getUser, createUser } from "../Models/Users.js";
-import bcrypt from 'bcrypt';
+const { getUser, createUser } =require( "../Models/Users.js");
+const bcrypt =require('bcrypt');
 
 
-export class Authenticator {
+class Authenticator {
 
     passwordIsStrong(password) {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
@@ -70,3 +70,5 @@ export class Authenticator {
 
 
 }
+
+module.exports=Authenticator;

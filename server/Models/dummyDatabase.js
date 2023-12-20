@@ -1,6 +1,6 @@
-import mysql from "mysql2";
+const mysql= require( "mysql2");
 
-export const createDatabaseIfNotExists = async () => {
+const createDatabaseIfNotExists = async () => {
     // Replace these values with your MySQL server credentials
     const connectionConfig = {
         host: '127.0.0.1',
@@ -40,7 +40,7 @@ export const createDatabaseIfNotExists = async () => {
 
 //connect to database
 
-export async function connectToDatabase() {
+ async function connectToDatabase() {
     const connectionConfig = {
         host: '127.0.0.1',
         user: 'root',
@@ -60,7 +60,7 @@ export async function connectToDatabase() {
 }
 
 // Create tables here
-export async function createUsersTable(connection) {
+ async function createUsersTable(connection) {
     try{
         connection.query(`CREATE TABLE IF NOT EXISTS users
                             (id INT AUTO_INCREMENT PRIMARY KEY,
@@ -79,3 +79,5 @@ export async function createUsersTable(connection) {
 createDatabaseIfNotExists();
 const connection = connectToDatabase();
 createUsersTable(connection);
+
+module.exports = {connectToDatabase, createUsersTable};

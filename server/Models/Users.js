@@ -1,15 +1,15 @@
-import { connectToDatabase } from "./dummyDatabase.js";
+const { connectToDatabase }= require("./dummyDatabase.js");
 
-const connection = await connectToDatabase();
+const connection =  connectToDatabase();
 
-export async function getUser(email) {
+ async function getUser(email) {
     const user = await connection.query(
         `SELECT * FROM users WHERE email = ? `, [email]
     );
     return user[0][0];
 }
 
-export async function createUser(email, password, firstName, lastName) {
+ async function createUser(email, password, firstName, lastName) {
     try{
         const user = await connection.query(
             `INSERT INTO users (email, password, firstName, lastName) VALUES (?, ?, ?, ?)`, [email, password, firstName, lastName]
@@ -20,3 +20,5 @@ export async function createUser(email, password, firstName, lastName) {
         console.log(error);
     }
 }
+
+module.exports = {getUser, createUser};
