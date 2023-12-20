@@ -7,7 +7,7 @@ import WithOther from "../../widgets/WithOther/WithOther";
 import FormSwitch from "../../widgets/FormSwitch/FormSwitch";
 
 
-const SignUp = () => {
+export default () => {
     const [Email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -69,8 +69,3 @@ const SignUp = () => {
   );
 };
 
-
-
-
-
-export default SignUp;

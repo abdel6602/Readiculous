@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {WithOther, FormSwitch} from "../../widgets";
 
 
-const Login = () => {
+export default () => {
     const [Email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -58,5 +58,3 @@ const Login = () => {
         </Fragment>
   );
 };
-
-export default Login;
