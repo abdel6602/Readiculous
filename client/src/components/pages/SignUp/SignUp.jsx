@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "./style.css";
+import "./signup.css";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -7,7 +7,7 @@ import WithOther from "../../widgets/WithOther/WithOther";
 import FormSwitch from "../../widgets/FormSwitch/FormSwitch";
 
 
-export default () => {
+export default function SignUp () {
     const [Email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");

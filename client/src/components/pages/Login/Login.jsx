@@ -1,11 +1,10 @@
-import React, { Fragment } from "react";
-import "./style.css";
-import { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import {WithOther, FormSwitch} from "../../widgets";
+import "./login.css";
+import WithOther from "../../widgets/WithOther/WithOther";
+import FormSwitch from "../../widgets/FormSwitch/FormSwitch";
 
-
-export default () => {
+export default function Login () {
     const [Email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -41,11 +40,11 @@ export default () => {
                             <div className="or">_ OR _</div>
                             <div className="form-group">
                                 <div className="form__group field">
-                                    <input class="form__field" type="email" name="email" id="email" placeholder="Enter your email" onChange={(e)=>EmailChangeHandler(e)} required/>
+                                    <input className="form__field" type="email" name="email" id="email" placeholder="Enter your email" onChange={(e)=>EmailChangeHandler(e)} required/>
                                     <label for="name" class="form__label">Email</label>
                                 </div>
                                 <div className="form__group field">
-                                    <input class="form__field" type="password" name="password" id="password" placeholder="Enter your password" onChange={(e)=>PasswordChangeHandler(e)} required/>
+                                    <input className="form__field" type="password" name="password" id="password" placeholder="Enter your password" onChange={(e)=>PasswordChangeHandler(e)} required/>
                                     <label for="name" class="form__label">Password</label>
                                 </div>
                             </div>
