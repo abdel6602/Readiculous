@@ -1,0 +1,106 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.FirstItem{
+    width: 622px;
+    border-radius: 25%;
+    background-color: white;
+    height: 630px;
+    text-align: left;
+}
+
+.SecondItem{
+    width: 300px;
+    height: 550px;
+    background-color: white;
+    border-radius: 80px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.span{
+    font-size: 40px;
+}
+
+.Header1{
+    width:622px;
+    color: white;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.Header2{
+    width: 250px;
+    color: white;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.img1{
+    width:190px;
+    height: auto;
+    border-radius: 145px 15px 15px 15px;
+    float: left;
+}
+
+.form{
+    border: none;
+    border-bottom: solid;
+    border-color: #B6B6B6;
+    margin-left: 50px;
+    width: 320px;
+    color: black;
+}
+.form::before{
+    border: none;
+}
+
+.SContainer{
+    display: flex;
+    width: 160px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 115px;
+    justify-content: space-around;
+    margin-left: 10px;
+}
+
+.SChild{
+    width: 40px;
+    height: 40px;
+}
+
+.rate{
+    border: none;
+    background-color: transparent;
+}
+
+.form2{
+    border: none;
+    border-bottom: solid;
+    border-color: #B6B6B6;
+    margin-left: 15px;
+    width: 160px;
+    color: black;
+}
+
+.TContainer{
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.bag{
+    width: 350px;
+    text-align: justify;
+    margin-right: 15px;
+}
+
+.c1{
+    width:200px;
+}

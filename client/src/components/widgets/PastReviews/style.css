@@ -1,0 +1,26 @@
+.FContainer2{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: left;
+    background-color: white;
+    border-radius: 450px;
+    height: 400px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.FB2{
+    margin-left: 100px;
+    height: 25%;
+    text-align: justify;
+    color: black;
+    font-weight: 500;
+}
+
+.img2{
+    height: 100px;
+    width: auto;
+    border-radius: 20px; 
+}
