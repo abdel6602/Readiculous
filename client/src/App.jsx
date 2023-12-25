@@ -1,8 +1,14 @@
 import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import './App.css';
-import SignUp from "./components/pages/SignUp/SignUp";
-import Login from "./components/pages/Login/Login";
+// import SignUp from "./components/pages/SignUp/SignUp";
+// import Login from "./components/pages/Login/Login";
+// import Home from "./components/pages/Home/Home";
+import {
+  SignUp,
+  Login,
+  Home
+} from "./components/pages";
 
 function App() {
   useEffect(() => {
@@ -16,6 +22,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Fragment>  

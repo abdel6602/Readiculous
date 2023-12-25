@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
+import Header from "../../layouts/Header/Header";
+import Footer from "../../layouts/Footer/Footer";
 
-export default () => {
+export default function Home () {
   return(
     <Fragment>
-        <div>
-        <h1>Home</h1>
-        </div>
+        <Header />
+        
+        <Footer />
     </Fragment>
   );
 };
