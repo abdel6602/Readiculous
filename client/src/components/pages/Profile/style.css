@@ -1,0 +1,229 @@
+/* Dummy class to be removed*/
+.Dummy{
+    height: 150px;
+}
+
+.all{
+    background-color: #80CAD3;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.FirstItem{
+    width: 622px;
+    border-radius: 25%;
+    background-color: white;
+    height: 630px;
+    text-align: left;
+}
+
+.SecondItem{
+    width: 300px;
+    height: 550px;
+    background-color: white;
+    border-radius: 80px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.span{
+    font-size: 40px;
+}
+
+.Header1{
+    width:622px;
+    color: white;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.Header2{
+    width: 250px;
+    color: white;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.img{
+    width: 150px;
+    height: auto;
+    border-radius: 20px; 
+}
+
+.img1{
+    width:190px;
+    height: auto;
+    border-radius: 145px 15px 15px 15px;
+    float: left;
+}
+
+.form{
+    border: none;
+    border-bottom: solid;
+    border-color: #B6B6B6;
+    margin-left: 50px;
+    width: 320px;
+    color: black;
+}
+.form::before{
+    border: none;
+}
+
+.SContainer{
+    display: flex;
+    width: 160px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 115px;
+    justify-content: space-around;
+    margin-left: 10px;
+}
+
+.SChild{
+    width: 40px;
+    height: 40px;
+}
+
+.rate{
+    border: none;
+    background-color: transparent;
+}
+
+.form2{
+    border: none;
+    border-bottom: solid;
+    border-color: #B6B6B6;
+    margin-left: 15px;
+    width: 160px;
+    color: black;
+}
+
+.TContainer{
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.bag{
+    width: 350px;
+    text-align: justify;
+    margin-right: 15px;
+}
+
+.c1{
+    width:200px;
+}
+
+.FContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: center;
+    background-color: white;
+    border-radius: 450px;
+    height: 400px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.p{
+    font-size: 48px;
+    color: white;
+}
+
+.FB{
+    margin-top: 40px;
+    width: 25%;
+    text-align: center;
+    color: black;
+    font-weight: 500;
+}
+
+.FContainer2{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: left;
+    background-color: white;
+    border-radius: 450px;
+    height: 400px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.FContainer3{
+    background-color: white;
+    border-radius: 150px;
+    margin-left: 200px;
+    margin-right: 200px;
+    height: 650px;
+}
+
+.FB2{
+    margin-left: 100px;
+    height: 25%;
+    text-align: justify;
+    color: black;
+    font-weight: 500;
+}
+
+.img2{
+    height: 100px;
+    width: auto;
+    border-radius: 20px; 
+}
+
+.space{
+    margin-left: 30px;
+    margin-right: 30px;
+    color: black;
+    text-decoration: none;
+}
+
+aside{
+    float: right;
+    margin-top: 50px;
+}
+
+.img3{
+    height: 550px;
+    width: auto;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.FB3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    width: 500px;
+    height: 600px;
+    margin-left: 60px;
+}
+
+.GG{
+    height: 100px;
+    width: auto;
+    text-align: justify;
+    color: black;
+    font-weight: 500;
+}
+
+.PT{
+    margin-left: 555px;
+    margin-right: 555px;
+    color: #00B4C9;
+    background-color: white;
+    font-weight: bolder;
+    border-radius: 50px;
+    font-size: 56px;
+}
