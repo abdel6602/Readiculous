@@ -1,60 +1,64 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { Link } from "./path-to-your-link-component"; // Correct import statement
-import { useCustomState } from "../../../state/state";
-import headerData from "./headerData";
+// Navbar.js
 
-export default () => {
-  const [sticky, setSticky] = useState(false);
-  const actions = useCustomState()[1];
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './Header.css'; // Import the stylesheet
 
-  const handleResize = () => {
-    setSticky(window.pageYOffset > 200 ? true : false);
-  };
+const Navbar = () => {
+  const [isSticky, setSticky] = useState(false);
+  const [isHovered, setHovered] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleResize);
+    const handleScroll = () => {
+      setSticky(window.scrollY > 0);
+    };
+
+    const handleMouseEnter = () => {
+      setHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+      setHovered(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mouseenter', handleMouseEnter);
+    window.addEventListener('mouseleave', handleMouseLeave);
+
     return () => {
-      window.removeEventListener("scroll", handleResize);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mouseenter', handleMouseEnter);
+      window.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
-  const menu = headerData.map((item, index) => {
-    return (
-      <li key={index}>
-        <Link url={item.url} hoverStyle={{ color: "#26735b" }}>
-          {item.name}
-        </Link>
-      </li>
-    );
-  });
-
   return (
-    <Fragment>
-      <div className={`your-header-wrapper-class ${sticky ? "sticky" : ""}`}>
-        <ul>{menu}</ul>
+    <nav className={`navbar ${isSticky || isHovered ? 'sticky' : ''}`}>
+      <div className="navbar-container">
+        <div className="navbar-logo">
+          <img src="/path/to/logo.png" alt="Logo" /> {/* Replace with your logo path */}
+        </div>
+        <ul className="nav-list">
+          <li className="nav-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about">About</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/profile">Profile</Link>
+          </li>
+        </ul>
+        {/* <div className="search-bar">
+          <input type="text" placeholder="Search..." />
+          <button type="button">Search</button>
+        </div> */}
       </div>
-    </Fragment>
+    </nav>
   );
 };
- 
 
-
-{/* <header>
-          <div>
-            <img></img>
-          </div>
-          <div>
-            <img></img>
-            <p></p>
-          </div>
-          <div>
-            <p></p>
-          </div>
-          <div>
-            <p></p>
-          </div>
-          <div>
-            <img></img>
-            <p></p>
-          </div>
-        </header> */}
+export default Navbar;

@@ -19,10 +19,10 @@ function App() {
     <Fragment>
       <div className="App">
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Navigate to="/login" />} />
-          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Fragment>  
