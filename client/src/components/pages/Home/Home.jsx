@@ -7,29 +7,25 @@ export default function Home () {
   return(
     <Fragment>
         <Header />
-        <body>
-        <div className="container">
-            <div className="large-image">
-              <div className="large-image2">
-                <img className="image" src="https://s3-alpha-sig.figma.com/img/eb78/536b/bc5ad475a7cad60350a13dd950c91bbb?Expires=1704672000&Signature=liUMyzNsAOfBSj9Az6WGE7yPbANFueBUWRVaPRBIqaiw2S0m~LHI2pGaGh0RWFj3RcUFku5raEjRlFwQ6eXEpZR4lSKPehK7JKWDd0Jv3kuhlpKX5mZrTTyxAWueZYLxJQbkKMnV5Mr6u2UXDK8AdYEOvHT~3zGtMynnetH7Kt6emnnzDuXXPSHPOGQtKS7Nl2Kjd3rHFmA4MChoCdejunxFWyfGZvN9WwOzLl15b6CzbyY6x-QfMG9S5bnn0igogbWHIE4x4mLgPz2E2kEh6Ly2x~Z39FKEs9eHBT1Q2mOnMf3HJFQ4AcHfHbhmWXPJVWIB7JCPlTeIrLFkzSlT0A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="placeholder" />
+          <div className="container">
+            <div className="top">
+                <div className="large-image">
+                    {/* <img className="image" src="https://s3-alpha-sig.figma.com/img/eb78/536b/bc5ad475a7cad60350a13dd950c91bbb?Expires=1704672000&Signature=liUMyzNsAOfBSj9Az6WGE7yPbANFueBUWRVaPRBIqaiw2S0m~LHI2pGaGh0RWFj3RcUFku5raEjRlFwQ6eXEpZR4lSKPehK7JKWDd0Jv3kuhlpKX5mZrTTyxAWueZYLxJQbkKMnV5Mr6u2UXDK8AdYEOvHT~3zGtMynnetH7Kt6emnnzDuXXPSHPOGQtKS7Nl2Kjd3rHFmA4MChoCdejunxFWyfGZvN9WwOzLl15b6CzbyY6x-QfMG9S5bnn0igogbWHIE4x4mLgPz2E2kEh6Ly2x~Z39FKEs9eHBT1Q2mOnMf3HJFQ4AcHfHbhmWXPJVWIB7JCPlTeIrLFkzSlT0A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="placeholder" /> */}
+                </div>
               </div>
-            </div>
-            <div className="mission">
-              <h1>Our Mission</h1>
-              <div className="mission-text">
-                <p>We are a group of students from BYU-Idaho who are working to create a website that will help people learn more about the Book of Mormon. We hope that this website will help people learn more about the Book of Mormon and help them to come closer to Christ.</p>
+              <div className="bottom">
+                <h1>Our Mission</h1>
+                <div className="mission">
+                  <div className="mission-text">
+                    <p>eashjdqwldansbfhajlknskbvhsdjdlknsbsvkhdajknsvbkdhajkxnabsdvkdhcakxnacdbskhcaknsvdbdkclnax nsvbdkjncxm, svdbnckzm, csvbdkcnalsvbdkclncbvkshlcajkncds</p>
+                  </div>
+                  <div className="mission-image">
+                    <img className="mission-image-small" src="https://s3-alpha-sig.figma.com/img/87a9/52f3/2bd19aeb1ac80001b209a2600ee27f53?Expires=1704672000&Signature=QPCTuiCaAUT5Snt22GvNDcdpgh~D0dfGlj0sNxAk8xGnIRmKRqhBCb6w~L2sVIF4ZRKBQ19ZJwmOjKZG54khZI0IgPPBm5-h3Rl1f5fuMotr5fNIr2WeJeoDdxE3AUSYyktthRDHJI6MlSmwB91mTuGW-cIYOU8i-I2fdbO3Av2VOsHdh8Nz~S8bHbdCpUnSNjUzCZmjjwNRRqqYuOtGLNHIrCNPglFpJJeTkpGXa-ztnOkA-guqtS2eX09bWlJFMqO8Re5ihN5xi1mXB7IuG539fpLYERzcmF5uq-f6SDTmKd2wztk7Rml1HMqpNCvrNItX4BcDtticOTkRcK9IjQ__&K" alt="placeholder" />
+                  </div>
+                </div>
+                <h1>Recent Publishings</h1>
               </div>
-              <div className="mission image">
-              </div>
-            </div>
-            <div className="recent">
-            </div>
-            <div className="bofm">
-            </div>
-            <div className="founders">
-            </div>
-        </div>
-        </body>
+          </div>
         {/* <Footer /> */}
     </Fragment>
   );
