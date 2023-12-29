@@ -45,7 +45,7 @@ class ReviewController {
         }
     }
     async topRated(req, res){
-        const books = await getTopRated(req.params.limit);
+        const books = await getTopRated();
         if(books){
             res.status(200).json({
                 books: books

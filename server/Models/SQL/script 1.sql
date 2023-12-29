@@ -37,3 +37,13 @@ CREATE TABLE IF NOT EXISTS book_of_the_month (
     FOREIGN KEY (club_id) REFERENCES club (id),
     FOREIGN KEY (book_id) REFERENCES book (id)
 );
+
+CREATE TABLE IF NOT EXISTS reviews(
+                                      book_id INT NOT NULL,
+                                      reviewer_id INT NOT NULL,
+                                      rating INT NOT NULL,
+                                      review TEXT,
+                                      PRIMARY KEY (book_id, reviewer_id),
+                                      FOREIGN KEY (book_id) REFERENCES books(id),
+                                      FOREIGN KEY (reviewer_id) REFERENCES users(id)
+);

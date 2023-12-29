@@ -34,7 +34,7 @@ async function getReviewsByUser(user_id){
     }
 }
 
-async function getTopRated(limit){
+async function getTopRated(){
     const connection = await connectToDatabase();
     try{
         //TODO: get the book's id's using the query below then return the actual books!
