@@ -1,13 +1,25 @@
-const express = require('express');
+const express = require("express");
+const cors = require('cors');
+const  authApp  = require("./Routes/Auth.js") ;
+const clubApp  = require("./Routes/Club.js") ;
+const createDatabaseIfNotExists  = require('./Models/database.js')
 
 const app = express();
 
-var sum = (a, b) => {
-    return a + b;
-}
+app.use(cors());
+app.use(express.json());
 
-//listen for requests here
+app.use('/auth', authApp)
+app.use('/club', clubApp)
+
+
+app.get('/', (req, res) => {
+    createDatabaseIfNotExists();
+    res.json({ message: "database created" });
+})
 
 app.listen(8080, () => {
     console.log('server listening on port 8080')
-})
+});
+
+module.exports = app;
