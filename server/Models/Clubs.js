@@ -13,6 +13,9 @@ async function create_club(name, description, id) {
         console.log(error.message);
         return false;
     }
+    finally {
+        connection.close();
+    }
 }
 
 async function get_club(name) {
@@ -39,4 +42,12 @@ async function getMemberIn(club_id, user_id) {
     return member[0][0];
 }
 
-module.exports = {create_club, get_club, get_club_by_id, getMemberIn};
+async function getUsersClubs(userId){
+    const connection = await connectToDatabase();
+    const clubs = await connection.query(
+        `SELECT * FROM clubs WHERE owner_id = ?`, [userId]
+    );
+    return clubs[0];
+}
+
+module.exports = {create_club, get_club, get_club_by_id, getMemberIn, getUsersClubs};

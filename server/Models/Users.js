@@ -45,9 +45,46 @@ async function getUserById(id) {
     return user[0][0];
 }
 
+async function getUserByFirstName(name){
+    const connection = await connectToDatabase();
+    try{
+        const user = await connection.query('SELECT * FROM users WHERE FIRSTNAME = ?', [name]);
+        return user[0][0];
+    }
+    catch (error){
+        console.log("from getUserByFirstName: " + error.message);
+    }
+}
+
+async function getUserByLastName(name){
+    const connection = await connectToDatabase();
+    try{
+        const user = await connection.query('SELECT * FROM users WHERE LASTNAME = ?', [name]);
+        return user[0][0];
+    }
+    catch(error){
+        console.log("in function getUserByLastName: " + error.message)
+    }
+}
+
+async function getUserByFullName(firstName, lastName){
+    const connection = await connectToDatabase();
+    try{
+        const user = await connection.query('SELECT * FROM users\n' +
+            'WHERE FIRSTNAME = ? and LASTNAME= ?;', [firstName, lastName]);
+        return user[0][0];
+    }
+    catch(error){
+        console.log("in function getUserByFullName: " + error.message)
+    }
+}
+
 module.exports = {
     getUser,
     getUserById,
     createUser,
-    deleteUser
+    deleteUser,
+    getUserByFirstName,
+    getUserByLastName,
+    getUserByFullName
 }
