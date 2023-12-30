@@ -10,7 +10,8 @@ import {
   Home,
   Profile,
   Club,
-  AboutUs
+  AboutUs,
+  ContactUs
 } from "./components/pages";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/club" element={<Club />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
       </div>
     </Fragment>  
