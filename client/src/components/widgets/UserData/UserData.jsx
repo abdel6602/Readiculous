@@ -10,10 +10,10 @@ const UserProfile = ({ userId }) => {
         const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
         const data = await response.json();
         setUserData({
-          fullName: `${data.name} ${data.username}`,
+          fullName: `${data.firstName} ${data.lastName}`,
           username: data.username,
           email: data.email,
-          favoriteBook: 'To Kill a Mockingbird', 
+          favoriteBook: data.favoriteBook, 
         });
       } catch (error) {
         console.error('Error fetching user data:', error);

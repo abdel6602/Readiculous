@@ -6,22 +6,51 @@ import FormSwitch from "../../widgets/FormSwitch/FormSwitch";
 
 export default function Login () {
     const [Email, setEmail] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
     const [Password, setPassword] = useState("");
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     const EmailChangeHandler = (event) => {
         setEmail(event.target.value)
       }
       const PasswordChangeHandler = (event) => {
         setPassword(event.target.value);
     }
-    const FirstNameChangeHandler = (event) => {
-        setFirstName(event.target.value)
-    }
-    const LastNameChangeHandler = (event) => {
-    setLastName(event.target.value);
-    }
+    const onSubmitHandler = (event) => {
+        var notFound = false;
+        event.preventDefault();
+        async function temp (){
+          try{
+            const response = await fetch(`http://localhost:3000/users/${UserName}`);
+            if(!response.ok){
+              alert("error!");
+              notFound = true;
+              return;
+            }
+            const user = await response.json();
+            console.log(user);
+            if(!user){
+              alert("incorrect email or email doesn't exist please sign up if you don't have an account");
+              notFound = true;
+              return;
+            }
+            if(PassWord !== user.Password){
+              notFound = true;
+              return;
+            }
+            }catch(err){
+              console.log(err);
+            }
+            if(notFound){
+              navigate("/login");
+              navigate("Login");
+            }
+            else{
+              navigate("/");
+            }
+            
+        }
+        temp();
+      }
+   
     
     return (
         <Fragment>
@@ -35,7 +64,7 @@ export default function Login () {
                     </div>
                     <div className={styles.rightside}>
                         <h1 className={styles.h1}>Login</h1> 
-                        <form action="/" method="get">
+                        <form onSubmit = {onSubmitHandler} action="/" method="post">
                             <WithOther withGoogle="Login with Google" withFacebook="Login with Facebook"/>
                             <div className={styles.or}>_ OR _</div>
                             <div className={styles.formgroup}>
