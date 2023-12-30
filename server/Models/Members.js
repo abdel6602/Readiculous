@@ -13,6 +13,9 @@ async function createAdmin(club_id, user_id) {
         console.log(error.message);
         return false;
     }
+    finally {
+        connection.close();
+    }
 }
 
 async function createMember(club_id, user_id) {
@@ -27,6 +30,9 @@ async function createMember(club_id, user_id) {
     catch (error) {
         console.log(error.message);
         return false;
+    }
+    finally {
+        connection.close();
     }
 }
 
