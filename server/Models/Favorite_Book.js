@@ -38,7 +38,7 @@ async function deleteBook(user_id,book_id){
 async function getUserByBook(book_id){
     const connection = await connectToDatabase();
     try {
-        const user  = await connection.query(
+        const user = await connection.query(
             `SELECT * FROM favorite_book WHERE book_id=?`, [book_id]
         )
         return user[0];

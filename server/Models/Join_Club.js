@@ -56,7 +56,7 @@ async function getMembers(club_id){
 async function getClubByMemberId(member_id){
     const connection = await connectToDatabase();
     try {
-        const club  =await connection.query(
+        const club = await connection.query(
             'SELECT club_id FROM join_club WHERE  members_id=?',[member_id]
         )
         return club[0]
