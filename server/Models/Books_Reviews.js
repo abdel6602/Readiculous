@@ -1,7 +1,7 @@
 const {connectToDatabase} = require('./database')
 
 //ADDED HERE TO TEST FIRST !
-async function getTopRated(){
+async function getTopRated(user_id){
     const connection = await connectToDatabase();
     try{
         //TODO: get the book's id's using the query below then return the actual books!
@@ -10,7 +10,7 @@ async function getTopRated(){
             FROM reviews
             JOIN books ON reviews.book_id = books.id
             ORDER BY reviews.rating DESC
-            LIMIT 10;`);
+            LIMIT 10;`)[user_id];
         return results[0];
     }catch (error){
         console.log('from function getTopRated: ' + error.message);

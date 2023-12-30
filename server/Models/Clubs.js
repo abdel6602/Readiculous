@@ -59,7 +59,7 @@ async function get_club_by_id(id) {
 
 }
 
-
+/*
 async function getMemberIn(club_id, user_id) {
     const connection = await connectToDatabase()
     try {
@@ -78,7 +78,7 @@ async function getMemberIn(club_id, user_id) {
     finally {
         connection.close();
     }
-}
+}*/
 
 async function getUsersClubs(userId){
     const connection = await connectToDatabase();
@@ -103,7 +103,7 @@ async function getUsersClubs(userId){
 async function getClubByGenre(genre_id){
     const connection = await connectToDatabase()
     try{
-        const club: Query = await connection.query(
+        const club = await connection.query(
             'SELECT * FROM clubs WHERE genre_id=?',[genre_id]
         )
         return club[0][0]
@@ -121,7 +121,7 @@ async function getClubByGenre(genre_id){
 async function getClubByName(name){
     const connection = await connectToDatabase()
     try{
-        const club: Query = await connection.query(
+        const club = await connection.query(
             'SELECT * FROM clubs WHERE name=?',[name]
         )
         return club[0][0]
@@ -137,7 +137,7 @@ async function getClubByName(name){
 async function getClubByOwner(Owner_Id){
     const connection = await connectToDatabase()
     try{
-        const club: Query = await connection.query(
+        const club = await connection.query(
             'SELECT * FROM clubs WHERE owner_id=?',[Owner_Id]
         )
         return club[0][0]
@@ -170,7 +170,7 @@ async function getClubByOwner(Owner_Id){
  async function getBookOfTheMonth(club_id){
      const connection = await connectToDatabase()
      try{
-         const club_result: Query = await connection.query(
+         const club_result = await connection.query(
              'SELECT book_id FROM clubs WHERE id=?',[club_id]
          )
 
@@ -189,5 +189,6 @@ async function getClubByOwner(Owner_Id){
      }
  }
 
-module.exports = {create_club, get_club, get_club_by_id, getMemberIn, getUsersClubs,getClubByGenre,getClubByName,
+module.exports = {create_club, get_club, get_club_by_id,
+    getMemberIn, getUsersClubs,getClubByGenre,getClubByName,
     getClubByOwner,getBookOfTheMonth,deleteClub};

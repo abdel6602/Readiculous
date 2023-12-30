@@ -16,7 +16,7 @@ async function getBook(searchKey){
 async function insertBook(title, description , cover_url , ISBN , release_date , genre_id ,author_id, purchase_url){
     const connection = await connectToDatabase();
     try{
-        const book: Query = await connection.query(
+        const book = await connection.query(
           'INSERT INTO books(title, description, cover_image_url, ISBN, release_date, genre_id, author_id, purchase_url) VALUES (?,?,?,?,?,?,?,?)'
               [title, description , cover_url , ISBN , release_date , genre_id ,author_id, purchase_url]
         );
@@ -61,7 +61,7 @@ async function getBookById(book_id){
 async function getBookByGenre(genre_id){
     const connection = await connectToDatabase();
     try{
-        const book: Query = await connection.query(
+        const book = await connection.query(
           'SELECT * FROM books WHERE genre_id = ?',[genre_id]
         );
         return book[0][0]
@@ -76,7 +76,7 @@ async function getBookByGenre(genre_id){
 async function recentlyPublished(){
     const connection = await connectToDatabase();
     try {
-        const book: Query = await connection.query(
+        const book = await connection.query(
             'SELECT title , description , cover_image_url FROM books WHERE release_date >= 2023-01-01'
         )
         return book[0][0]
@@ -89,8 +89,23 @@ async function recentlyPublished(){
     }
 
 }
+async function getBookByAuthor(author_id){
+    const connection = await connectToDatabase();
+    try{
+        const book = await connection.query(
+            'SELECT * FROM books WHERE author_id = ?',[author_id]
+        );
+        return book[0][0]
+    }
+    catch(error){
+        console.log("from getBookByAuthor function: " + error.message);
+    }
+    finally {
+        connection.close();
+    }
+}
 
 
 
 
-module.exports = {getBook,recentlyPublished,getBookById,getBookByGenre,deleteBook,insertBook};
+module.exports = {getBook,recentlyPublished,getBookById,getBookByAuthor,getBookByGenre,deleteBook,insertBook};
