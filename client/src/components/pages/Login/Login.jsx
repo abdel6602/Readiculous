@@ -17,9 +17,23 @@ export default function Login () {
     const onSubmitHandler = (event) => {
         var notFound = false;
         event.preventDefault();
+        if (!Email || !Password) {
+          alert("Please fill in all fields");
+          return;
+        }
         async function temp (){
           try{
-            const response = await fetch(`http://localhost:3000/users/${UserName}`);
+            const response = await fetch(`localhost:8080/auth`, {
+              method: 'GET',
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: 
+                JSON.stringify({
+                  email: Email,
+                  password: Password
+                }),
+            });
             if(!response.ok){
               alert("error!");
               notFound = true;
@@ -32,7 +46,7 @@ export default function Login () {
               notFound = true;
               return;
             }
-            if(PassWord !== user.Password){
+            if(Password !== user.Password){
               notFound = true;
               return;
             }
@@ -64,7 +78,7 @@ export default function Login () {
                     </div>
                     <div className={styles.rightside}>
                         <h1 className={styles.h1}>Login</h1> 
-                        <form onSubmit = {onSubmitHandler} action="/" method="post">
+                        <form onSubmit = {onSubmitHandler} action="/" method="get">
                             <WithOther withGoogle="Login with Google" withFacebook="Login with Facebook"/>
                             <div className={styles.or}>_ OR _</div>
                             <div className={styles.formgroup}>

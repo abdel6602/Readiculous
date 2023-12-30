@@ -8,7 +8,8 @@ import {
   SignUp,
   Login,
   Home,
-  Profile
+  Profile,
+  Club
 } from "./components/pages";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Navigate to="/login" />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/club" element={<Club />} />
         </Routes>
       </div>
     </Fragment>  

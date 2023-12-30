@@ -25,6 +25,32 @@ export default function SignUp () {
     const LastNameChangeHandler = (event) => {
     setLastName(event.target.value);
     }
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+        async function temp (){
+          try{
+              await fetch("localhost:8080/auth",{
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: 
+                  JSON.stringify({
+                    email: Email,
+                    firstname: firstName,
+                    lastname: lastName,
+                    password: Password
+                  }),
+                
+              })
+            }catch(err){
+              console.log(err);
+            }
+            alert("added successfully");
+            navigate("/");
+        }
+        temp();
+      }
     
     return (
         <Fragment>
@@ -38,7 +64,7 @@ export default function SignUp () {
                     </div>
                     <div className={styles.rightside}>
                         <h1 className={styles.h1}>Create Account</h1> 
-                        <form action = "/" method = "post">
+                        <form onSubmit = {onSubmitHandler} action = "/" method = "post">
                             <WithOther withGoogle="Sign up with Google" withFacebook="Sign up with Facebook"/>
                             <div className={styles.or}>_ OR _</div>
                             <div className={styles.formgroup}>
