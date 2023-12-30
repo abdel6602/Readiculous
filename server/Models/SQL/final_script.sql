@@ -73,8 +73,6 @@ CREATE TABLE IF NOT EXISTS  clubs(
                                         owner_id INT NOT NULL,
                                         discussion_id INT NOT NULL,
                                         book_id INT NOT NULL,
-                                        start_date DATE NOT NULL,
-                                        end_date DATE NOT NULL,
                                         FOREIGN KEY (genre_id) REFERENCES genre(id),
                                         FOREIGN KEY (owner_id) REFERENCES users(id),
                                         FOREIGN KEY (discussion_id) REFERENCES discussion(id),

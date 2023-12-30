@@ -1,4 +1,4 @@
-const connectToDatabase = require( "./database.js");
+const {connectToDatabase} = require( "./database.js");
 const {getBooksIdInHistory} = require("./Contain");
 const {getBookById} = require("./Books");
 

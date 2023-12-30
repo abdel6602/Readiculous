@@ -1,4 +1,4 @@
-const connectToDatabase = require("./database.js");
+const {connectToDatabase} = require("./database.js");
 
 async function insertBook(user_id ,book_id){
     const connection = await connectToDatabase();
