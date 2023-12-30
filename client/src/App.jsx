@@ -7,7 +7,8 @@ import './App.css';
 import {
   SignUp,
   Login,
-  Home
+  Home,
+  Profile
 } from "./components/pages";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Fragment>  

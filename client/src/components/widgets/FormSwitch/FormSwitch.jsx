@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
-import "./style.css";
+import styles from "./style.module.scss";
 import PropTypes from 'prop-types'
 
 
 const FormSwitch = ( props ) => {
     return (
         <Fragment>
-            <div className="already-have">
-                <p className="already-have-text">{props.alreadyHave}</p>
-                <p className="or-login">{props.switchTo}</p>
+            <div className={styles.alreadyhave}>
+                <p className={styles.alreadyhavetext}>{props.alreadyHave}</p>
+                <p className={styles.orlogin}>{props.switchTo}</p>
             </div>
         </Fragment>
     );
