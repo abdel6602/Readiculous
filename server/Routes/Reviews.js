@@ -5,9 +5,10 @@ const ReviewController = require('../Controllers/ReviewController');
 
 const controller = new ReviewController();
 
-reviewApp.get('/', controller.create)
+reviewApp.post('/', controller.create)
 reviewApp.get('/getReviews', controller.getReviewsByUser);
-reviewApp.get('/top/', controller.topRated);
+reviewApp.get('/top', controller.topRated);
+reviewApp.get('/book/:id', controller.getBookReviews);
 
 
 module.exports = reviewApp;

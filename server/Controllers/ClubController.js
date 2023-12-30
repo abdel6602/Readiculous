@@ -1,6 +1,6 @@
 const { create_club, get_club, get_club_by_id, getMemberIn } = require('../Models/Clubs.js') ;
 const { createAdmin, createMember } = require ('../Models/Members.js');
-const getUserById =  require('../Models/Users.js');
+const { getUserById } =  require('../Models/Users');
 
 class ClubController {
 
@@ -45,10 +45,10 @@ class ClubController {
         const isUserExists = await getUserById(user_id);
         const isClubExists = await get_club_by_id(club_id);
 
-        if(await getMemberIn(club_id, user_id)){
-            res.status(400).json({ message: "User is already a member" });
-            return;
-        }
+        // if(await getMemberIn(club_id, user_id)){
+        //     res.status(400).json({ message: "User is already a member" });
+        //     return;
+        // }
 
         if (isUserExists && isClubExists) {
             const queryStatus = await createMember(club_id, user_id);

@@ -4,8 +4,8 @@ async function create_club(name, description, id, genre_id) {
     const connection = await connectToDatabase()
     try {
         await connection.query(
-            `INSERT INTO clubs (name, description, owner_id, genre_id)
-            VALUES (?, ?, ?)`, [name, description, id, genre_id]
+            `INSERT INTO clubs (name, description, owner_id, genre_id, discussion_id, book_id)
+            VALUES (?, ?, ?, ?, ?, ?)`, [name, description, id, genre_id, 1, 1]
         );
         return true;
     }
@@ -59,26 +59,26 @@ async function get_club_by_id(id) {
 
 }
 
-/*
-async function getMemberIn(club_id, user_id) {
-    const connection = await connectToDatabase()
-    try {
-        const member = await connection.query(
-            `SELECT *
-             FROM members
-             WHERE club_id = ?
-               AND user_id = ?`, [club_id, user_id]
-        );
-        return member[0][0];
-    }
-    catch (error) {
-        console.log("from getMemberIn function: " + error.message);
-        return false;
-    }
-    finally {
-        connection.close();
-    }
-}*/
+
+// async function getMemberIn(club_id, user_id) {
+//     const connection = await connectToDatabase()
+//     try {
+//         const member = await connection.query(
+//             `SELECT *
+//              FROM members
+//              WHERE club_id = ?
+//                AND user_id = ?`, [club_id, user_id]
+//         );
+//         return member[0][0];
+//     }
+//     catch (error) {
+//         console.log("from getMemberIn function: " + error.message);
+//         return false;
+//     }
+//     finally {
+//         connection.close();
+//     }
+// }
 
 async function getUsersClubs(userId){
     const connection = await connectToDatabase();
@@ -189,6 +189,14 @@ async function getClubByOwner(Owner_Id){
      }
  }
 
-module.exports = {create_club, get_club, get_club_by_id,
-    getMemberIn, getUsersClubs,getClubByGenre,getClubByName,
-    getClubByOwner,getBookOfTheMonth,deleteClub};
+module.exports = {
+    create_club,
+    get_club,
+    get_club_by_id,
+    getUsersClubs,
+    getClubByGenre,
+    getClubByName,
+    getClubByOwner,
+    getBookOfTheMonth,
+    deleteClub,
+};
