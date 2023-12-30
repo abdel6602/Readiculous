@@ -5,14 +5,14 @@ const getUserById =  require('../Models/Users.js');
 class ClubController {
 
     async createClub(req, res) {
-        const { clubName, description, CreatorId } = req.body;
+        const { clubName, description, CreatorId, genreId } = req.body;
         //TODO: check if club name already exists
         const club = await get_club(clubName);
         if (club) {
             res.status(400).json({ message: "Club name already exists" })
             return;
         }
-        const queryStatus = await create_club(clubName, description, CreatorId);
+        const queryStatus = await create_club(clubName, description, CreatorId, genreId);
         if (queryStatus) {
             res.status(200).json({ message: "Club created successfully" })
         }

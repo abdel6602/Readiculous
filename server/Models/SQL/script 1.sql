@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS books(
     cover_image_url VARCHAR (2048),
     PRIMARY KEY (id)
 );
-CREATE TABLE IF NOT EXISTS club(
+CREATE TABLE IF NOT EXISTS clubs(
     id INT AUTO_INCREMENT NOT NULL,
     name VARCHAR (100) NOT NULL,
     description VARCHAR (255),
@@ -27,14 +27,14 @@ CREATE TABLE IF NOT EXISTS members (
     user_id INT NOT NULL,
     role ENUM('admin', 'member'),
     PRIMARY KEY (club_id, user_id),
-    FOREIGN KEY (club_id) REFERENCES club (id),
+    FOREIGN KEY (club_id) REFERENCES clubs (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 CREATE TABLE IF NOT EXISTS book_of_the_month (
     club_id INT NOT NULL,
     book_id INT NOT NULL,
     PRIMARY KEY (club_id, book_id),
-    FOREIGN KEY (club_id) REFERENCES club (id),
+    FOREIGN KEY (club_id) REFERENCES clubs (id),
     FOREIGN KEY (book_id) REFERENCES books (id)
 );
 

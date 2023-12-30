@@ -1,16 +1,16 @@
-const connectToDatabase = require("./database.js");
+const {connectToDatabase} = require("./database.js");
 
-async function create_club(name, description, id) {
+async function create_club(name, description, id, genre_id) {
     const connection = await connectToDatabase()
     try {
         await connection.query(
-            `INSERT INTO clubs (name, description, owner_id)
-            VALUES (?, ?, ?)`, [name, description, id]
+            `INSERT INTO clubs (name, description, owner_id, genre_id)
+            VALUES (?, ?, ?)`, [name, description, id, genre_id]
         );
         return true;
     }
     catch (error) {
-        console.log(error.message);
+        console.log("from function create_club: " + error.message);
         return false;
     }
     finally {
@@ -175,7 +175,7 @@ async function getClubByOwner(Owner_Id){
          )
 
          const book_id = club_result[0][0].book_id;
-         const book:Query =await connection.query(
+         const book = await connection.query(
              'SELECT * FROM books WHERE id = ? '[book_id]
          )
          return book[0][0]
