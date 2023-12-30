@@ -59,7 +59,7 @@ async function get_club_by_id(id) {
 
 }
 
-
+/*
 async function getMemberIn(club_id, user_id) {
     const connection = await connectToDatabase()
     try {
@@ -78,7 +78,7 @@ async function getMemberIn(club_id, user_id) {
     finally {
         connection.close();
     }
-}
+}*/
 
 async function getUsersClubs(userId){
     const connection = await connectToDatabase();
@@ -189,5 +189,6 @@ async function getClubByOwner(Owner_Id){
      }
  }
 
-module.exports = {create_club, get_club, get_club_by_id, getMemberIn, getUsersClubs,getClubByGenre,getClubByName,
+module.exports = {create_club, get_club, get_club_by_id,
+    getMemberIn, getUsersClubs,getClubByGenre,getClubByName,
     getClubByOwner,getBookOfTheMonth,deleteClub};

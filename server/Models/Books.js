@@ -89,8 +89,23 @@ async function recentlyPublished(){
     }
 
 }
+async function getBookByAuthor(author_id){
+    const connection = await connectToDatabase();
+    try{
+        const book = await connection.query(
+            'SELECT * FROM books WHERE author_id = ?',[author_id]
+        );
+        return book[0][0]
+    }
+    catch(error){
+        console.log("from getBookByAuthor function: " + error.message);
+    }
+    finally {
+        connection.close();
+    }
+}
 
 
 
 
-module.exports = {getBook,recentlyPublished,getBookById,getBookByGenre,deleteBook,insertBook};
+module.exports = {getBook,recentlyPublished,getBookById,getBookByAuthor,getBookByGenre,deleteBook,insertBook};
