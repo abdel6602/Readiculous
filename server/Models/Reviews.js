@@ -1,11 +1,11 @@
 const {connectToDatabase} = require('./database')
 
-async function createReview(user_id, book_id, review, rating) {
+async function createReview(user_id, book_id, review, rating, time) {
     const connection = await connectToDatabase();
     try{
         await connection.query(
-            `INSERT INTO reviews (reviewer_id, book_id, review, rating)
-            VALUES (?, ?, ?, ?)`, [user_id, book_id, review, rating]
+            `INSERT INTO reviews (reviewer_id , book_id, review, rating, timestamp)
+            VALUES (?, ?, ?, ?,?)`, [user_id, book_id, review, rating,time]
         );
         return true;
     }
@@ -38,7 +38,10 @@ async function getTopRated(){
     const connection = await connectToDatabase();
     try{
         //TODO: get the book's id's using the query below then return the actual books!
-        const results = await connection.query(`SELECT * FROM reviews ORDER BY rating DESC LIMIT 10`);
+        const results = await connection.query(`
+            SELECT *  
+            FROM reviews 
+            ORDER BY rating DESC LIMIT 10`);
         return results[0];
     }catch (error){
         console.log('from function getTopRated: ' + error.message);
@@ -47,5 +50,20 @@ async function getTopRated(){
         connection.close();
     }
 }
+async function getReviewsByBook(book_id){
+    const connection = await connectToDatabase();
+    try{
+        const reviews = await connection.query(
+            `SELECT * FROM reviews WHERE reviews.book_id = ?`, [book_id]
+        );
+        return reviews[0];
+    }
+    catch (error) {
+        console.log("from function getReviewsByUser" + error.message);
+    }
+    finally {
+        connection.close();
+    }
+}
 
-module.exports = {createReview, getReviewsByUser, getTopRated};
+module.exports = {createReview, getReviewsByUser, getTopRated, getReviewsByBook};
