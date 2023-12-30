@@ -47,7 +47,7 @@ async function connectToDatabase() {
         return connection.promise();
     }
     catch (error) {
-        console.log("Error connecting to database");
+        console.log(error.message);
         return false;
     }
 }
