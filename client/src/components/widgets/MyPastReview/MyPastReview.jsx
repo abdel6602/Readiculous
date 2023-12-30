@@ -5,10 +5,17 @@ const MyPastReview = ({ userId }) => {
   const [userReviews, setUserReviews] = useState(null);
 
   useEffect(() => {
-    // Simulating data fetching from a database or API
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/comments?userId=${userId}`);
+        const response = await fetch(`localhost:8080/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: userId,
+          }),
+        });
         const data = await response.json();
         const threeReviews = data.slice(0, 3); // Take the first three comments as reviews
         setUserReviews(threeReviews);

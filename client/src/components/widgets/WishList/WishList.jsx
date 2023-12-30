@@ -8,7 +8,15 @@ const Wishlist = ({ userId }) => {
     
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`);
+        const response = await fetch(`localhost:8080/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: userId,
+          }),
+        });
         const data = await response.json();
         const booksToRead = data.slice(0, 3); // Take the first three todos as books to read
         setWishlist(booksToRead);

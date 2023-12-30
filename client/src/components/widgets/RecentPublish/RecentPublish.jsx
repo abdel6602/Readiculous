@@ -7,8 +7,15 @@ const BookDetail = () => {
   useEffect(() => {
     const fetchBooksData = async () => {
       try {
-        // Assuming the API returns an array of book objects
-        const response = await fetch('/api/books'); // Replace with your actual API endpoint
+        const response = await fetch(`localhost:8080/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: userId,
+          }),
+        });
         const data = await response.json();
         setBooks(data);
       } catch (error) {

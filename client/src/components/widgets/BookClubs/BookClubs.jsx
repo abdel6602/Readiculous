@@ -5,10 +5,17 @@ const BookClubs = ({ userId }) => {
   const [bookClubs, setBookClubs] = useState(null);
 
   useEffect(() => {
-    // Simulating data fetching from a database or API
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`);
+        const response = await fetch(`localhost:8080/`,{
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: userId,
+          }),
+        });
         const data = await response.json();
         const userBookClubs = data.slice(0, 3); // Take the first three todos as book clubs
         setBookClubs(userBookClubs);

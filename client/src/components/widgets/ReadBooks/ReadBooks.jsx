@@ -8,7 +8,15 @@ const ReadBooks = ({ userId }) => {
     // Simulating data fetching from a database or API
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+        const response = await fetch(`localhost:8080/`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            userId: userId,
+          }),
+        });
         const data = await response.json();
         const booksRead = data.slice(0, 3); // Take the first three posts as books read
         setReadBooks(booksRead);
