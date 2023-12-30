@@ -1,16 +1,16 @@
-const connectToDatabase = require("./database.js");
+const {connectToDatabase} = require("./database.js");
 
-async function create_club(name, description, id) {
+async function create_club(name, description, id, genre_id) {
     const connection = await connectToDatabase()
     try {
         await connection.query(
-            `INSERT INTO clubs (name, description, owner_id)
-            VALUES (?, ?, ?)`, [name, description, id]
+            `INSERT INTO clubs (name, description, owner_id, genre_id)
+            VALUES (?, ?, ?)`, [name, description, id, genre_id]
         );
         return true;
     }
     catch (error) {
-        console.log(error.message);
+        console.log("from function create_club: " + error.message);
         return false;
     }
     finally {
@@ -103,7 +103,7 @@ async function getUsersClubs(userId){
 async function getClubByGenre(genre_id){
     const connection = await connectToDatabase()
     try{
-        const club: Query = await connection.query(
+        const club = await connection.query(
             'SELECT * FROM clubs WHERE genre_id=?',[genre_id]
         )
         return club[0][0]
@@ -121,7 +121,7 @@ async function getClubByGenre(genre_id){
 async function getClubByName(name){
     const connection = await connectToDatabase()
     try{
-        const club: Query = await connection.query(
+        const club = await connection.query(
             'SELECT * FROM clubs WHERE name=?',[name]
         )
         return club[0][0]
@@ -137,7 +137,7 @@ async function getClubByName(name){
 async function getClubByOwner(Owner_Id){
     const connection = await connectToDatabase()
     try{
-        const club: Query = await connection.query(
+        const club = await connection.query(
             'SELECT * FROM clubs WHERE owner_id=?',[Owner_Id]
         )
         return club[0][0]
@@ -170,12 +170,12 @@ async function getClubByOwner(Owner_Id){
  async function getBookOfTheMonth(club_id){
      const connection = await connectToDatabase()
      try{
-         const club_result: Query = await connection.query(
+         const club_result = await connection.query(
              'SELECT book_id FROM clubs WHERE id=?',[club_id]
          )
 
          const book_id = club_result[0][0].book_id;
-         const book:Query =await connection.query(
+         const book = await connection.query(
              'SELECT * FROM books WHERE id = ? '[book_id]
          )
          return book[0][0]

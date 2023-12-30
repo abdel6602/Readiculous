@@ -18,10 +18,10 @@ class Authenticator {
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
             if (passwordRegex.test(password)) {
                 //hash password
-                const salt = await bcrypt.genSalt(10);
-                const hashedPassword = await bcrypt.hash(password, salt);
+                // const salt = await bcrypt.genSalt(10);
+                // const hashedPassword = await bcrypt.hash(password, salt);
                 // create user
-                const user = await createUser(email, hashedPassword, firstName, lastName);
+                const user = await createUser(email, password, firstName, lastName);
                 if (user) {
                     res.status(200)
                     res.json({

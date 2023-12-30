@@ -37,7 +37,7 @@ async function deleteMember(member_id,club_id){
 async function getMembers(club_id){
     const connection = await connectToDatabase();
     try {
-        const members:Query = await connection.query(
+        const members = await connection.query(
             `SELECT * 
              FROM members
              JOIN join_club ON membership_id = join_club.members_id 
@@ -56,7 +56,7 @@ async function getMembers(club_id){
 async function getClubByMemberId(member_id){
     const connection = await connectToDatabase();
     try {
-        const club : Query =await connection.query(
+        const club = await connection.query(
             'SELECT club_id FROM join_club WHERE  members_id=?',[member_id]
         )
         return club[0]

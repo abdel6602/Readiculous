@@ -19,4 +19,24 @@ async function getTopRated(){
         connection.close();
     }
 }
-module.exports= getTopRated()
+
+async function getUsersReviews(userId){
+    const connection = await connectToDatabase();
+    try{
+        const results = await connection.query(`
+            SELECT reviews.*, books.*
+            FROM reviews
+            JOIN books ON reviews.book_id = books.id
+            WHERE reviews.user_id = ?
+            ORDER BY reviews.rating DESC;
+        `, [userId]);
+        return results[0];
+    }
+    catch (error){
+        console.log('from function getUsersReviews: ' + error.message);
+    }
+    finally {
+        connection.close();
+    }
+}
+module.exports= {getTopRated, getUsersReviews}
