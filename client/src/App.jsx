@@ -9,7 +9,8 @@ import {
   Login,
   Home,
   Profile,
-  Club
+  Club,
+  AboutUs
 } from "./components/pages";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="*" element={<Navigate to="/login" />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/club" element={<Club />} />
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </div>
     </Fragment>  

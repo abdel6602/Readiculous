@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styles from "./club.module.scss";
 
-export default () => {
+export default function Club () {
   return(
     <Fragment>
         <div className={styles.container}>
