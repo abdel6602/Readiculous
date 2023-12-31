@@ -43,8 +43,8 @@ NOT AVAILABLE YET!
 <br>
 
 #### LOG IN
-    METHOD: GET
-    ENDPOINT: /auth
+    METHOD: POST
+    ENDPOINT: /auth/login
     BODY: 
     {
         email: string,
@@ -77,6 +77,7 @@ NOT AVAILABLE YET!
 #### GET FULL USER INFO
     METHOD: GET
     ENDPOINT: /users/:id
+    BODY: NONE
     returns:
     {
         "user": {
@@ -175,8 +176,8 @@ NOT AVAILABLE YET!
 
 #### GET REVIEWS MADE BY A CERTAIN USER
     METHOD: GET
-    ENDPOINT: /review/getReviews
-    BODY: {user_id : INTEGER}
+    ENDPOINT: /review/getReviews/[USER ID]
+    BODY: NONE
     returns: {
         "reviews": [
             {
