@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Header from "../../layouts/Header/Header";
 import Footer from "../../layouts/Footer/Footer";
-import styles from "./home.css";
+import styles from "./home.module.scss";
 
 export default function Home () {
   return(

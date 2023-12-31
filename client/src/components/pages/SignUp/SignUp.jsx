@@ -12,7 +12,7 @@ export default function SignUp () {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [Password, setPassword] = useState("");
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     const EmailChangeHandler = (event) => {
         setEmail(event.target.value)
       }
@@ -29,7 +29,11 @@ export default function SignUp () {
         event.preventDefault();
         async function temp (){
           try{
-              await fetch("localhost:8080/auth",{
+                console.log(Email);
+                console.log(firstName);
+                console.log(lastName);
+                console.log(Password);
+              const response = await fetch("http://localhost:8080/auth",{
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -37,20 +41,26 @@ export default function SignUp () {
                 body: 
                   JSON.stringify({
                     email: Email,
-                    firstname: firstName,
-                    lastname: lastName,
+                    firstName: firstName,
+                    lastName: lastName,
                     password: Password
                   }),
                 
               })
-            }catch(err){
-              console.log(err);
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error("Error:", errorData);
+                } else {
+                    const responseData = await response.json();
+                    alert(responseData.message);
+                    navigate("/");
+                }
+            } catch (err) {
+                console.error("Error:", err.message);
             }
-            alert("added successfully");
-            navigate("/");
         }
         temp();
-      }
+    }
     
     return (
         <Fragment>
@@ -69,20 +79,20 @@ export default function SignUp () {
                             <div className={styles.or}>_ OR _</div>
                             <div className={styles.formgroup}>
                                 <div className={styles.form__group}>
-                                    <input class={styles.form__field} type="text" name="firstName" id="firstName" placeholder="First Name" onChange={(e)=>FirstNameChangeHandler(e)} required/>
-                                    <label for="name" class={styles.form__label}>First Name</label>
+                                    <input className={styles.form__field} type="text" name="firstName" id="firstName" placeholder="First Name" onChange={(e)=>FirstNameChangeHandler(e)} required/>
+                                    <label htmlFor="Fname" className={styles.form__label}>First Name</label>
                                 </div>
                                 <div className={styles.form__group}>
-                                    <input class={styles.form__field} type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={(e)=>LastNameChangeHandler(e)} required/>
-                                    <label for="name" class={styles.form__label}>Last Name</label>
+                                    <input className={styles.form__field} type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={(e)=>LastNameChangeHandler(e)} required/>
+                                    <label htmlFor="Lname" className={styles.form__label}>Last Name</label>
                                 </div>
                                 <div className={styles.form__group}>
-                                    <input class={styles.form__field} type="email" name="email" id="email" placeholder="Enter your email" onChange={(e)=>EmailChangeHandler(e)} required/>
-                                    <label for="name" class={styles.form__label}>Email</label>
+                                    <input className={styles.form__field} type="email" name="email" id="email" placeholder="Enter your email" onChange={(e)=>EmailChangeHandler(e)} required/>
+                                    <label htmlFor="email" className={styles.form__label}>Email</label>
                                 </div>
                                 <div className={styles.form__group}>
-                                    <input class={styles.form__field} type="password" name="password" id="password" placeholder="Enter your password" onChange={(e)=>PasswordChangeHandler(e)} required/>
-                                    <label for="name" class={styles.form__label}>Password</label>
+                                    <input className={styles.form__field} type="password" name="password" id="password" placeholder="Enter your password" onChange={(e)=>PasswordChangeHandler(e)} required/>
+                                    <label htmlFor="pass" className={styles.form__label}>Password</label>
                                 </div>
                             </div>
                             <button className={styles.button} type="submit">Create Account</button>

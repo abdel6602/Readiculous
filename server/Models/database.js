@@ -5,7 +5,7 @@ const createDatabaseIfNotExists = async () => {
     const connectionConfig = {
         host: '127.0.0.1',
         user: 'root',
-        password: '',
+        password: 'IP-Project_2023',
     };
 
     // Create a connection
@@ -37,7 +37,7 @@ async function connectToDatabase() {
     const connectionConfig = {
         host: '127.0.0.1',
         user: 'root',
-        password: '',
+        password: 'IP-Project_2023',
         database: 'Readiculous'
     }
     const connection = mysql.createConnection(connectionConfig);

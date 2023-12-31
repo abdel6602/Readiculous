@@ -45,17 +45,17 @@ class Authenticator {
         const user = await getUser(email)
         if (user) {
             if (password === user.password) {
-                res.json({
+                res.status(200).json({
                     message: "Logged in successfully",
                     userID: user.id
                 });
             }
             else {
-                res.json({ message: "Incorrect password" })
+                res.status(400).json({ message: "Incorrect password" })
             }
         }
         else {
-            res.json({ message: "User not found" })
+            res.status(404).json({ message: "User not found" })
         }
     }
 

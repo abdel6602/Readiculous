@@ -23,7 +23,7 @@ export default function Login () {
         }
         async function temp (){
           try{
-            const response = await fetch(`localhost:8080/auth`, {
+            const response = await fetch(`http://localhost:8080/auth`, {
               method: 'GET',
               headers: {
                 "Content-Type": "application/json",
@@ -84,11 +84,11 @@ export default function Login () {
                             <div className={styles.formgroup}>
                                 <div className={styles.form__group}>
                                     <input className={styles.form__field} type="email" name="email" id="email" placeholder="Enter your email" onChange={(e)=>EmailChangeHandler(e)} required/>
-                                    <label for="name" class={styles.form__label}>Email</label>
+                                    <label htmlFor="email" className={styles.form__label}>Email</label>
                                 </div>
                                 <div className={styles.form__group}>
                                     <input className={styles.form__field} type="password" name="password" id="password" placeholder="Enter your password" onChange={(e)=>PasswordChangeHandler(e)} required/>
-                                    <label for="name" class={styles.form__label}>Password</label>
+                                    <label htmlFor="pass" className={styles.form__label}>Password</label>
                                 </div>
                             </div>
                             <button className={styles.button} type="submit">Login</button>

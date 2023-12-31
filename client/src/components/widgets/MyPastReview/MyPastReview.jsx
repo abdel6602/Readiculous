@@ -44,9 +44,9 @@ const MyPastReview = ({ userId }) => {
   );
 };
 
-UserReviews.propTypes = {
-  userId: PropTypes.number.isRequired,
-};
+// UserReviews.propTypes = {
+//   userId: PropTypes.number.isRequired,
+// };
 
 const reviewContainerStyle = {
   border: '1px solid #ccc',

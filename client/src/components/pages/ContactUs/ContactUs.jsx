@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import styles from "./ContactUs.module.scss";
+import styles from "./contact.module.scss";
 
 export default function ContactUs () {
   return(
