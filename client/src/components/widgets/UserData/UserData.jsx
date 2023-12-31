@@ -7,21 +7,22 @@ const UserProfile = ({ userId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`localhost:8080/`, {
+        const response = await fetch(`http://localhost:8080/users/${userId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            userId: userId,
-          }),
         });
-        const data = await response.json();
+        const result = await response.json();
+        const { user, clubs } = result;
+
+        const userClubs = clubs.map(club => club.name).join(', ');
+
         setUserData({
-          fullName: `${data.firstName} ${data.lastName}`,
-          username: data.username,
-          email: data.email,
-          favoriteBook: data.favoriteBook, 
+          firstName: user.first_name,
+          lastName: user.last_name,
+          email: user.email,
+          clubs: userClubs,
         });
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -36,18 +37,17 @@ const UserProfile = ({ userId }) => {
 
   return (
     <div>
-      <h2>User Profile</h2>
       <p>
-        <strong>Full Name:</strong> {userData.fullName}
+        <strong>First Name:</strong> {userData.firstName}
       </p>
       <p>
-        <strong>Username:</strong> {userData.username}
+        <strong>Last Name:</strong> {userData.lastName}
       </p>
       <p>
         <strong>Email:</strong> {userData.email}
       </p>
       <p>
-        <strong>Favorite Book:</strong> {userData.favoriteBook}
+        <strong>Clubs:</strong> {userData.clubs}
       </p>
     </div>
   );

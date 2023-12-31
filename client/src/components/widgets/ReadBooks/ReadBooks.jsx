@@ -18,7 +18,7 @@ const ReadBooks = ({ userId }) => {
           }),
         });
         const data = await response.json();
-        const booksRead = data.slice(0, 3); // Take the first three posts as books read
+        const booksRead = data.slice(0, 3); 
         setReadBooks(booksRead);
       } catch (error) {
         console.error('Error fetching user read books:', error);

@@ -8,17 +8,14 @@ const Wishlist = ({ userId }) => {
     
     const fetchData = async () => {
       try {
-        const response = await fetch(`localhost:8080/`, {
+        const response = await fetch(`localhost:8080/wishlist/${userId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            userId: userId,
-          }),
         });
         const data = await response.json();
-        const booksToRead = data.slice(0, 3); // Take the first three todos as books to read
+        const booksToRead = data.slice(0, 3); 
         setWishlist(booksToRead);
       } catch (error) {
         console.error('Error fetching user wishlist:', error);

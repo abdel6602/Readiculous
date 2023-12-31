@@ -7,7 +7,7 @@ const MyPastReview = ({ userId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`localhost:8080/`, {
+        const response = await fetch(`localhost:8080/review/getReviews`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
