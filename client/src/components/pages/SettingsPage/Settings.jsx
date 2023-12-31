@@ -3,7 +3,7 @@ import Header from "../../layouts/Header/Header";
 import styles from "./settings.module.scss";
 import UserData from "../../widgets/UserData/UserData";
 
-export default () => {
+export default function Settings () {
   return(
     <Fragment>
         <Header />

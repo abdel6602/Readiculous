@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
 import styles from "./club.module.scss";
+import Header from "../../layouts/Header/Header";
 
 export default function Club () {
   return(
     <Fragment>
+        <Header />
         <div className={styles.container}>
             <div className={styles.head}>
                 <h1>Club Name</h1>

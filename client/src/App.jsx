@@ -5,13 +5,16 @@ import './App.css';
 // import Login from "./components/pages/Login/Login";
 // import Home from "./components/pages/Home/Home";
 import {
-  SignUp,
+  SignUp, 
   Login,
-  Home,
+  Home, 
   Profile,
   Club,
   AboutUs,
-  ContactUs
+  ContactUs,
+  Book,
+  MyBook,
+  SettingsPage,
 } from "./components/pages";
 
 function App() {
@@ -31,6 +34,9 @@ function App() {
           <Route path="/club" element={<Club />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/book" element={<Book />} />
+          <Route path="/my-book" element={<MyBook />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </div>
     </Fragment>  

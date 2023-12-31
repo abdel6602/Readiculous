@@ -2,7 +2,9 @@ import React, { Fragment } from "react";
 import styles from "./AboutUs.module.scss";
 import Header from "../../layouts/Header/Header";
 
+
 export default function AboutUs() {
+
   return(
     <Fragment>
         <Header />

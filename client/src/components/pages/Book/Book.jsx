@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Header from "../../layouts/Header/Header";
 
-export default () => {
+export default function Book () {
   return(
     <Fragment>
         <Header />

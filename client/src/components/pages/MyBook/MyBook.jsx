@@ -4,7 +4,7 @@ import styles from "./mybook.module.scss";
 import WishList from "../../widgets/WishList/WishList";
 import ReadBooks from "../../widgets/ReadBooks/ReadBooks";
 
-export default () => {
+export default function MyBook() {
   return(
     <Fragment>
         <Header />

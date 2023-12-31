@@ -5,6 +5,9 @@ import Profile from "./Profile/Profile";
 import Club from "./Club/Club";
 import AboutUs from "./AboutUs/AboutUs";
 import ContactUs from "./ContactUs/ContactUs";
+import Book from "./Book/Book";
+import MyBook from "./MyBook/MyBook";
+import SettingsPage from "./SettingsPage/Settings"
 
 export { 
     SignUp, 
@@ -13,5 +16,8 @@ export {
     Profile,
     Club,
     AboutUs,
-    ContactUs
+    ContactUs,
+    Book,
+    MyBook,
+    SettingsPage,
 };

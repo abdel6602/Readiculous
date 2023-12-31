@@ -10,10 +10,12 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
+// const rootElement = document.getElementById('root');
+// const root = createRoot(rootElement);
 
-root.render(
+// root.render(
+
+ReactDOM.render(
   <Router>
     <HttpsRedirect>
       <App />
