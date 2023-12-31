@@ -23,7 +23,7 @@ export default function Home () {
                     <img className={styles.missionimagesmall} src="https://s3-alpha-sig.figma.com/img/87a9/52f3/2bd19aeb1ac80001b209a2600ee27f53?Expires=1704672000&Signature=QPCTuiCaAUT5Snt22GvNDcdpgh~D0dfGlj0sNxAk8xGnIRmKRqhBCb6w~L2sVIF4ZRKBQ19ZJwmOjKZG54khZI0IgPPBm5-h3Rl1f5fuMotr5fNIr2WeJeoDdxE3AUSYyktthRDHJI6MlSmwB91mTuGW-cIYOU8i-I2fdbO3Av2VOsHdh8Nz~S8bHbdCpUnSNjUzCZmjjwNRRqqYuOtGLNHIrCNPglFpJJeTkpGXa-ztnOkA-guqtS2eX09bWlJFMqO8Re5ihN5xi1mXB7IuG539fpLYERzcmF5uq-f6SDTmKd2wztk7Rml1HMqpNCvrNItX4BcDtticOTkRcK9IjQ__&K" alt="placeholder" />
                   </div>
                 </div>
-                <h1 className={styles.h1}>Recent Publishings</h1>
+                {/* <h1 className={styles.h1}>Recent Publishings</h1> */}
               </div>
           </div>
     </Fragment>

@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
 import styles from "./contact.module.scss";
+import Header from "../../layouts/Header/Header";
 
 export default function ContactUs () {
   return(
     <Fragment>
+        <Header />
         <div className={styles.container}>
             <div className={styles.head}>
                 <h1>Readiculous</h1>
