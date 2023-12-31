@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+const mysql= require("mysql2");
 
 const createDatabaseIfNotExists = async () => {
     // Replace these values with your MySQL server credentials
@@ -33,10 +33,6 @@ const createDatabaseIfNotExists = async () => {
     }
 };
 
-// Call the function
-
-//connect to database
-
 async function connectToDatabase() {
     const connectionConfig = {
         host: '127.0.0.1',
@@ -51,30 +47,29 @@ async function connectToDatabase() {
         return connection.promise();
     }
     catch (error) {
-        console.log("Error connecting to database");
+        console.log(error.message);
         return false;
     }
 }
 
 // Create tables here
-async function createUsersTable(connection) {
-    try {
-        connection.query(`CREATE TABLE IF NOT EXISTS users
-                            (id INT AUTO_INCREMENT PRIMARY KEY,
-                            username VARCHAR(255) NOT NULL UNIQUE,
-                            password VARCHAR(255) NOT NULL,
-                            first_name NVARCHAR(255) NOT NULL,
-                            last_name NVARCHAR(255) NOT NULL);`);
-        console.log("Created users table");
-    }
-    catch (error) {
-        console.log(error.message);
-    }
-}
+// async function createUsersTable(connection) {
+//     try {
+//         connection.query(`CREATE TABLE IF NOT EXISTS users
+//                             (id INT AUTO_INCREMENT PRIMARY KEY,
+//                             username VARCHAR(255) NOT NULL UNIQUE,
+//                             password VARCHAR(255) NOT NULL,
+//                             first_name NVARCHAR(255) NOT NULL,
+//                             last_name NVARCHAR(255) NOT NULL);`);
+//         console.log("Created users table");
+//     }
+//     catch (error) {
+//         console.log(error.message);
+//     }
+// }
 
 
 createDatabaseIfNotExists();
 const connection = connectToDatabase();
-createUsersTable(connection);
 
-module.exports = {connectToDatabase, createDatabaseIfNotExists, createUsersTable}
+module.exports = {connectToDatabase, createDatabaseIfNotExists}

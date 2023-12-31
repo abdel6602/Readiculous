@@ -1,10 +1,9 @@
 const { getUser, createUser, getUserById, deleteUser } = require("../Models/Users");
-const bcrypt = require('bcrypt');
 
 
 class Authenticator {
+
     async signup(req, res) {
-        //TODO: validate against sql injection
         const { email, password, firstName, lastName } = req.body;
         // check if username exists in database
         const user = await getUser(email);
@@ -18,15 +17,13 @@ class Authenticator {
             const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
             if (passwordRegex.test(password)) {
                 //hash password
-                const salt = await bcrypt.genSalt(10);
-                const hashedPassword = await bcrypt.hash(password, salt);
                 // create user
-                const user = await createUser(email, hashedPassword, firstName, lastName);
+                const user = await createUser(email, password, firstName, lastName);
                 if (user) {
                     res.status(200)
                     res.json({
                         message: "signed up successfully",
-                        userID: user.ID
+                        userID: user.id
                     });
                 }
                 else {
@@ -47,12 +44,10 @@ class Authenticator {
         // check if username exists in database
         const user = await getUser(email)
         if (user) {
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(password, salt);
-            if (bcrypt.compare(hashedPassword, user.PASSWORD)) {
+            if (password === user.password) {
                 res.json({
                     message: "Logged in successfully",
-                    userID: user.ID
+                    userID: user.id
                 });
             }
             else {
@@ -69,9 +64,7 @@ class Authenticator {
 
         const user = await getUserById(id);
         if (user) {
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(req.body.password, salt);
-            if (bcrypt.compare(hashedPassword, user.PASSWORD)) {
+            if (password === user.password){
                 await deleteUser(user.ID);
                 res.status(200)
                 res.json({ message: "User deleted" });
@@ -87,12 +80,12 @@ class Authenticator {
         }
     }
 
-    async changePassword(req, res) {r
-
-        //TODO: implement this function
-        const { userID, newPassword } = req.body;
-
-    }
+    // async changePassword(req, res) {r
+    //
+    //     //TODO: implement this function
+    //     const { userID, newPassword } = req.body;
+    //
+    // }
 
 }
 
