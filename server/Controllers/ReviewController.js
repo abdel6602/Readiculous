@@ -1,6 +1,7 @@
 const {getUserById} = require('../Models/Users');
-const getBook = require('../Models/Books');
-const {createReview, getReviewsByUser, getTopRated} = require('../Models/Reviews');
+const {getBook} = require('../Models/Books');
+const {getUsersReviews, getTopRated, createReview, getReviewsByBook} = require('../Models/Books_Reviews');
+const {getBookById} = require('../Models/Books');
 
 class ReviewController {
     async create(req, res) {
@@ -16,7 +17,8 @@ class ReviewController {
                 // console.log(book);
                 // console.log(bookTitle)
                 if (book) {
-                    const queryStatus = await createReview(user.ID, book.id, review, rating);
+                    const date = new Date();
+                    const queryStatus = await createReview(user.id, book.id, review, rating, date);
                     if (queryStatus) {
                         res.status(200).json({message: "Review created successfully"});
                     } else {
@@ -33,10 +35,10 @@ class ReviewController {
     }
 
     async getReviewsByUser(req, res) {
-        const {id} = req.body;
-        const user = await getUserById(id);
+        const {user_id} = req.body;
+        const user = await getUserById(user_id);
         if (user) {
-            const reviews = await getReviewsByUser(id);
+            const reviews = await getUsersReviews(user_id);
             if (reviews) {
                 res.status(200).json({reviews: reviews});
             } else {
@@ -48,12 +50,35 @@ class ReviewController {
         const books = await getTopRated();
         if(books){
             res.status(200).json({
-                books: books
+                books:books
             });
         }
         else{
             res.status(500).json({
                 message : "internal server error"
+            });
+        }
+    }
+
+    async getBookReviews(req, res){
+        const bookId = req.params.id;
+        const book = await getBookById(bookId);
+        if(book){
+            const reviews = await getReviewsByBook(bookId);
+            if(reviews){
+                res.status(200).json({
+                    reviews: reviews
+                })
+            }
+            else{
+                res.status(400).json({
+                    message: "Book does not exist"
+                });
+            }
+        }
+        else{
+            res.status(400).json({
+                message: "Book does not exist"
             });
         }
     }

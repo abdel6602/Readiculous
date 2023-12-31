@@ -1,10 +1,9 @@
-const getBook = require('../Models/Books');
+const {getBook} = require('../Models/Books');
 const {getUserByFirstName, getUserByLastName, getUser, getUserByFullName} = require('../Models/Users');
 class GeneralController {
     async search(req, res){
         const searchKey = req.query.searchKey;
         const keys = searchKey.split(" ");
-        console.log(searchKey)
         if(keys){
             if(keys.length == 2){
                 //could be book or user
@@ -21,8 +20,8 @@ class GeneralController {
                 else if(user){
                     res.json({
                         type: "user",
-                        first_name : user.FIRSTNAME,
-                        last_name : user.LASTNAME
+                        first_name : user.first_name,
+                        last_name : user.last_name
                     });
                 }
                 else{
@@ -48,15 +47,15 @@ class GeneralController {
                 else if(user){
                     res.json({
                         type: "user",
-                        first_name : user.FIRSTNAME,
-                        last_name : user.LASTNAME
+                        first_name : user.first_name,
+                        last_name : user.last_name
                     });
                 }
                 else if(userL){
                     res.json({
                         type: "user",
-                        first_name : user.FIRSTNAME,
-                        last_name : user.LASTNAME
+                        first_name : user.first_name,
+                        last_name : user.last_name
                     })
                 }
                 else{

@@ -5,6 +5,6 @@ const UserController = require('../Controllers/UserController');
 
 const userController = new UserController();
 
-userApp.get('/', userController.getUserInfo);
+userApp.get('/:id', userController.getUserInfo);
 
 module.exports = userApp

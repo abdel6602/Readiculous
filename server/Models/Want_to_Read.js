@@ -1,4 +1,4 @@
-const connectToDatabase = require( "./database.js");
+const {connectToDatabase} = require( "./database.js");
 
 async function insertWantToReadBook(user_id,book_id){
     const connection = await connectToDatabase();
@@ -10,6 +10,7 @@ async function insertWantToReadBook(user_id,book_id){
     }
     catch (error){
         console.log("from insertWantToReadBook: " + error.message);
+        return false;
     }
     finally {
         connection.close();
@@ -19,7 +20,7 @@ async function deleteWantToReadBook(user_id,book_id){
     const connection = await connectToDatabase();
     try {
         await connection.query (
-            'DELETE FROM want_to_read WHERE user_id=? and book_id=?', [user_id,book_id]
+            `DELETE FROM want_to_read WHERE user_id = ? AND book_id = ?;`, [user_id,book_id]
         );
         return true
     }
@@ -50,7 +51,7 @@ async function getBookWantToReadBookByUser(user_id){
     const connection = await connectToDatabase();
     try {
         const user = await connection.query(
-            'SELECT * FROM want_to_read WHERE user_id=? '[user_id]
+            'SELECT * FROM want_to_read WHERE user_id=? ', [user_id]
         );
         return user[0]
     }
