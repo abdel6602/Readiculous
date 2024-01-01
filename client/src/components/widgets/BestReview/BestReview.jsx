@@ -13,7 +13,7 @@ const BestReviews = () => {
           },
         });
         const result = await response.json();
-        const topReviews = result.books.slice(0, 3); // Take the top 3 reviews
+        const topReviews = result.books.slice(0, 3); 
 
         const reviewsWithReviewerNames = await Promise.all(
           topReviews.map(async (review) => {

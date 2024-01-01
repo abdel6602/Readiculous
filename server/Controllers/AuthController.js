@@ -19,6 +19,7 @@ class Authenticator {
                 //hash password
                 // create user
                 const user = await createUser(email, password, firstName, lastName);
+                console.log(user);
                 if (user) {
                     res.status(200)
                     res.json({

@@ -7,17 +7,15 @@ const FavoriteBooks = ({ userId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`localhost:8080/`, {
+        userId = localStorage.getItem('userID');
+        const response = await fetch(`http://localhost:8080/users/${userId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            userId: userId,
-          }),
         });
         const data = await response.json();
-        const threeBooks = data.slice(0, 3); 
+        const threeBooks = data.favorites.slice(0, 3); 
         setFavoriteBooks(threeBooks);
       } catch (error) {
         console.error('Error fetching favorite books:', error);
@@ -45,9 +43,9 @@ const FavoriteBooks = ({ userId }) => {
   );
 };
 
-FavoriteBooks.propTypes = {
-  userId: PropTypes.number.isRequired,
-};
+// FavoriteBooks.propTypes = {
+//   userId: PropTypes.number.isRequired,
+// };
 
 const bookContainerStyle = {
   border: '1px solid #ccc',

@@ -29,10 +29,6 @@ export default function SignUp () {
         event.preventDefault();
         async function temp (){
           try{
-                console.log(Email);
-                console.log(firstName);
-                console.log(lastName);
-                console.log(Password);
               const response = await fetch("http://localhost:8080/auth",{
                 method: "POST",
                 headers: {
@@ -47,12 +43,13 @@ export default function SignUp () {
                   }),
                 
               })
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    console.error("Error:", errorData);
+              const responseData = await response.json();
+              console.log(responseData);
+                if (! responseData.userID) {
+                    console.error("Error:", responseData.message);
                 } else {
-                    const responseData = await response.json();
                     alert(responseData.message);
+                    localStorage.setItem("userID", responseData.userID);
                     navigate("/");
                 }
             } catch (err) {
