@@ -1,0 +1,79 @@
+.createwithother{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: center;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    padding: 10px 0;
+  }
+  
+  .creategoogle{
+    width: 200px;
+    height: 40px;
+    flex-shrink: 0;
+    border: 3px solid #D9D9D9;
+    background: #FFF;
+    margin-right: 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+  }
+  
+  .googlelogo{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .googleimage{
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .googletext{
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    align-items: left;
+  }
+  
+  .createfacebook{
+    width: 200px;
+    height: 40px;
+    flex-shrink: 0;
+    border: 3px solid #D9D9D9;
+    background: #FFF;
+    margin-right: 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+  }
+  
+  .facebooklogo{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .facebookimage{
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .facebooktext{
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    align-items: left;
+  }
